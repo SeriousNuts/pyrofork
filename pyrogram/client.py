@@ -668,7 +668,7 @@ class Client(Methods):
                             )
                         except (ChannelPrivate, PersistentTimestampOutdated, PersistentTimestampInvalid):
                             pass
-                        except OsError as e:
+                        except OSError as e:
                             raise e
                         else:
                             if not isinstance(diff, raw.types.updates.ChannelDifferenceEmpty):
