@@ -666,8 +666,10 @@ class Client(Methods):
                                     force=False
                                 )
                             )
-                        except (ChannelPrivate, PersistentTimestampOutdated, PersistentTimestampInvalid, OsError):
+                        except (ChannelPrivate, PersistentTimestampOutdated, PersistentTimestampInvalid):
                             pass
+                        except OsError as e:
+                            raise e
                         else:
                             if not isinstance(diff, raw.types.updates.ChannelDifferenceEmpty):
                                 users.update({u.id: u for u in diff.users})
